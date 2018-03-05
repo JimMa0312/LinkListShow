@@ -1,0 +1,16 @@
+public static CreateList(){
+    LinkList L=new LinkNode(NULL);
+    LinkNode s,r;
+    int x;
+    x=scanner.nextInt;
+    r=L.Head.next;
+    while(x!=flag){
+        s=new LinkNode(NULL);
+        s.data=x;
+        r.next=s;
+        r=s;
+        x=scanner.bextInt;
+    }
+
+    return L;
+}
