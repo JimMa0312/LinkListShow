@@ -51,11 +51,6 @@ public class CreateListView extends BaseCanve implements Initializable{
 
     private GraphMaterix<ListNodeView> graphMaterix;    //链接矩阵
 
-    private static final int HeadX=20;
-    private static final int HeadY=20;
-    private static final int DestenceX=30;
-    private static final int DestenceY=40;
-
     public CreateListView() {
         super();
         inputbuffer=new LinkedList<>();
