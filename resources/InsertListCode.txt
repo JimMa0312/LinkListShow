@@ -14,18 +14,3 @@ public static int InsertList(int i,datatype x){
         return 1;
     }
 }
-
-public static LinkNode GetList(int i )
-{
-    LinkNode p = Head;
-    int j = 0;
-    while(p.next!=NULL && j<i)
-    {
-        p = p.next ;
-        j++;
-    }
-    if(j == i)
-        return p;
-    else
-        return NULL;
-}
