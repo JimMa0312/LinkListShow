@@ -23,4 +23,15 @@ public class Controller implements Initializable {
         stage.setScene(new Scene(createListRoot));
         stage.show();
     }
+
+    @FXML
+    public void OpenDeleteListView() throws  Exception{
+        Parent deleteListRoot= FXMLLoader.load(getClass().getResource("DeleteListView.fxml"));
+        Stage stage=new Stage();
+        stage.setTitle("删除链表");
+        stage.setScene(new Scene(deleteListRoot));
+        stage.show();
+    }
+
+
 }

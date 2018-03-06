@@ -67,7 +67,7 @@ public class CreateListView extends BaseCanve implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         codes= ReadFromFile.readFileByLine("resources/CreateListCode.txt");
         CodeList.setItems(codes);
-        CheckInputBufer();
+        CheckInputBuffer();
         //TODO
 //        pathTransition();
     }
@@ -204,7 +204,7 @@ public class CreateListView extends BaseCanve implements Initializable{
         pathTransition.play();
     }
 
-    private void CheckInputBufer(){
+    private void CheckInputBuffer(){
         if (inputbuffer.isEmpty()){
             createInputBuffer();
         }
