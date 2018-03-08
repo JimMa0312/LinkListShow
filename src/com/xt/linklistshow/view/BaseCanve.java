@@ -7,6 +7,7 @@ import com.xt.linklistshow.util.DrawLine;
 import com.xt.linklistshow.view.custom.ListNodeView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
@@ -204,5 +205,12 @@ public class BaseCanve implements DrawLine{
         }
         
         return null;
+    }
+
+    public void ShowEndAlert(){
+        Alert alert=new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("演示完成");
+        alert.setHeaderText("演示完成");
+        alert.showAndWait();
     }
 }

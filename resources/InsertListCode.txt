@@ -1,15 +1,15 @@
 public static int InsertList(int i,datatype x){
-    LinkNode p,s;
-    p = GetList(i-1);
-    if(p == NULL){
-        return  0;
-    }
-    else
-    {
-        s = new LinkNode();
-        s.data = x;
-        s.next = p.next;
-        p.next = s;
-        return 1;
-    }
-}
+     LinkNode p,s;
+     p = GetList(i-1);
+     if(p == NULL){
+         return  0;
+     }
+     else
+     {
+         s = new LinkNode();
+         s.data = x;
+         s.next = p.next;
+         p.next = s;
+         return 1;
+     }
+ }

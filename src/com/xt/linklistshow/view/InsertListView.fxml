@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-
-<BorderPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="600.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xt.linklistshow.view.InsertListView">
     <top>
         <HBox prefHeight="54.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
@@ -18,7 +18,7 @@
                         <Font size="25.0" />
                     </font>
                 </Label>
-                <Button mnemonicParsing="false" text="  单步演示  ">
+                <Button mnemonicParsing="false" onAction="#handleNext" text="  单步演示  ">
                     <HBox.margin>
                         <Insets top="10.0" />
                     </HBox.margin>
@@ -32,7 +32,7 @@
         </HBox>
     </top>
     <left>
-        <AnchorPane prefHeight="200.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <AnchorPane fx:id="ListCanve" prefHeight="200.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <BorderPane.margin>
                 <Insets />
             </BorderPane.margin>
@@ -44,7 +44,7 @@
                 <Insets />
             </BorderPane.margin>
             <children>
-                <ListView layoutX="100.0" layoutY="163.0" prefHeight="526.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                <ListView fx:id="CodeList" layoutX="100.0" layoutY="163.0" prefHeight="526.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             </children>
         </AnchorPane>
     </right>

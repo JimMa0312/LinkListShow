@@ -17,7 +17,7 @@
       <VBox alignment="CENTER" layoutX="250.0" layoutY="106.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
          <children>
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OpenCreateListView" text="创建链表" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="插入结点" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OpenInsertListView" text="插入结点" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OpenDeleteListView" text="删除结点" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="有序链表合并" />
          </children>

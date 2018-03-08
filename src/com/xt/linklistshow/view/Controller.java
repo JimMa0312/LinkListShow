@@ -28,6 +28,15 @@ public class Controller implements Initializable {
     }
 
     @FXML
+    public void OpenInsertListView() throws Exception{
+        Parent insertListRoot=FXMLLoader.load(getClass().getResource("InsertListView.fxml"));
+        Stage stage=new Stage();
+        stage.setTitle("插入数据");
+        stage.setScene(new Scene(insertListRoot));
+        stage.show();
+    }
+
+    @FXML
     public void OpenDeleteListView() throws  Exception{
         Parent deleteListRoot= FXMLLoader.load(getClass().getResource("DeleteListView.fxml"));
         Stage stage=new Stage();
