@@ -3,18 +3,17 @@ public static int DeleteList(int i){
     p = GetList(L,i-1);
     if(p == NULL)
     {
-        System.out.println("  第i-1个结点不存在");
         return -1；
     }
     else if（p.next==NULL）
     {
-        System.out.println("第i个结点不存在"）；
         return 0 ；
     }
     else
     {
         s = p.next;
         p.next = s.next;
+        s=null;
         return 1;
     }
 

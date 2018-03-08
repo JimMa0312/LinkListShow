@@ -53,7 +53,7 @@ public class ListNode {
     public void addDataLisener(Label node){
         data.addListener((observable, oldValue, newValue) -> {
             node.setText(data.get());
-        });
+    });
     }
 
     /**

@@ -35,6 +35,4 @@ public class Controller implements Initializable {
         stage.setScene(new Scene(deleteListRoot));
         stage.show();
     }
-
-
 }

@@ -52,7 +52,6 @@ public class BaseCanve implements DrawLine{
             }
         }
     }
-
     /**
      * 添加连接线
      *
@@ -73,8 +72,8 @@ public class BaseCanve implements DrawLine{
         double toNodeX=toNode.getLayoutX();
         double toNodeY=toNode.getLayoutY();
 
-        double fromNodeWidth=fromNode.getWidth();
-        double fromNodeHeigh=fromNode.getHeight();
+        double fromNodeWidth=100;
+        double fromNodeHeigh=30;
 
         /**
          * 创建连接线
@@ -140,8 +139,6 @@ public class BaseCanve implements DrawLine{
      * @param input 建立链表需要的数据
      */
     public void createList(ObservableList<ListNodeView> list, GraphMaterix<ListNodeView> graphMaterix, String input){
-        list=FXCollections.observableArrayList();
-        graphMaterix=new GraphMaterix<>(1);
 
         //添加Head
         ListNodeView nodeView=new ListNodeView();
@@ -159,6 +156,8 @@ public class BaseCanve implements DrawLine{
             list.add(tempNodeView);//将新建的视图对象放入链表中
             graphMaterix.addVertex(tempNodeView);//在关系对象中添加该新建的节点
             graphMaterix.addEdge(s,tempNodeView); //添加一两个节点相互连接的数据记录。 模拟链表中*next
+            s.getNode().setIsConntectNull(1);
+            s=tempNodeView;
         }
     }
 
@@ -194,5 +193,16 @@ public class BaseCanve implements DrawLine{
         //绘制所有的箭头线
 
         DrawLine(graphMaterix,lineList,pane);
+    }
+    
+    public ListNodeView findNode(ObservableList<ListNodeView> nodeArray){
+        ListNodeView node=null;
+
+        for (ListNodeView nodeView :
+                nodeArray) {
+            
+        }
+        
+        return null;
     }
 }

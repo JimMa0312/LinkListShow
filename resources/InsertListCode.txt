@@ -2,7 +2,6 @@ public static int InsertList(int i,datatype x){
     LinkNode p,s;
     p = GetList(i-1);
     if(p == NULL){
-        System.out.println("参数i错误");
         return  0;
     }
     else
