@@ -1,0 +1,22 @@
+public LinkList Union(LinkList A, LinkList B){
+    LinkList C;
+    LinkNode p,q,s;
+    p=A.Head.next; q=B.Head.next;
+    C=A;
+    C.Head.Next=NULL;
+    while(p&&q){
+        if(p.data<q.data)
+            {s=p;p=p.next;}
+        else
+            {s=q;q=q.next;}
+         s.next=C.Head.next;
+         C.Head.next=s;
+    }
+    if(p==NULL)p=q;
+    while(p){
+        s=p;p=p.next;
+        s.next=C.Head.next;
+        C.Head.next=s;
+    }
+    return C;
+}

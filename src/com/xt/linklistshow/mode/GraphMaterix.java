@@ -77,4 +77,20 @@ public class GraphMaterix<E> {
     public void setVertex(ArrayList<ArrayList<E>> vertex) {
         Vertex = vertex;
     }
+
+    public int getVertexNum() {
+        return VertexNum;
+    }
+
+    public void setVertexNum(int vertexNum) {
+        VertexNum = vertexNum;
+    }
+
+    public int getEdgeNum() {
+        return EdgeNum;
+    }
+
+    public void setEdgeNum(int edgeNum) {
+        EdgeNum = edgeNum;
+    }
 }

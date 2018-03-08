@@ -115,9 +115,11 @@ public class BaseCanve implements DrawLine{
     @Override
     public void clearLineList(AnchorPane pane, ObservableList<ArrowLine> list) {
         //遍历数组，将所有的ArrowLine从Pane中删除
-        for (ArrowLine arrowLine :
-                list) {
-            arrowLine.remove(pane);
+        if (list.size()>=1) {
+            for (ArrowLine arrowLine :
+                    list) {
+                arrowLine.remove(pane);
+            }
         }
 
         //清除链表

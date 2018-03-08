@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="579.0" prefWidth="1313.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xt.linklistshow.view.UnionListView">
+<BorderPane prefHeight="600.0" prefWidth="1313.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xt.linklistshow.view.UnionListView">
     <top>
         <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
             <children>
@@ -19,7 +19,7 @@
                         <Font name="System Bold" size="25.0" />
                     </font>
                 </Label>
-                <Button mnemonicParsing="false" text="单步演示">
+                <Button mnemonicParsing="false" onAction="#handleNext" text="单步演示">
                     <HBox.margin>
                         <Insets left="60.0" />
                     </HBox.margin>

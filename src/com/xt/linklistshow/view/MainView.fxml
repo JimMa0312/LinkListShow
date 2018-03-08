@@ -19,7 +19,7 @@
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OpenCreateListView" text="创建链表" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OpenInsertListView" text="插入结点" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OpenDeleteListView" text="删除结点" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="有序链表合并" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OpenUnionListView" text="有序链表合并" />
          </children>
          <opaqueInsets>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

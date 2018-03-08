@@ -44,4 +44,13 @@ public class Controller implements Initializable {
         stage.setScene(new Scene(deleteListRoot));
         stage.show();
     }
+
+    @FXML
+    public void OpenUnionListView() throws Exception{
+        Parent unionListRoot=FXMLLoader.load(getClass().getResource("UnionListView.fxml"));
+        Stage stage=new Stage();
+        stage.setTitle("有序链表合并");
+        stage.setScene(new Scene(unionListRoot));
+        stage.show();
+    }
 }

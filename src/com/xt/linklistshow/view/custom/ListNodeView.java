@@ -43,8 +43,18 @@ public class ListNodeView extends Pane implements Initializable {
         node.addIsOnFouce(onFuces);
     }
 
+    public ListNodeView(String value){
+        loadFxml();
+        node=new ListNode(0,value,false);
+        drawNode();
+        node.addDataLisener(data);
+        node.addIsConnectionListener(isNull);
+        node.addIsOnFouce(onFuces);
+    }
+
     public ListNode getNode() {
         return node;
+
     }
 
     public void setNode(ListNode node) {
