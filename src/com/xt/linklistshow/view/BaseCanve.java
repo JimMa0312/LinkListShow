@@ -14,6 +14,11 @@ import javafx.scene.shape.Polygon;
 
 import java.util.ArrayList;
 
+/**
+ * 控制器基础类
+ * 包含关于一次性创建链表（需要模拟的链表）方法,
+ * 关于连接线的操作等
+ */
 public class BaseCanve implements DrawLine{
 
     public static final int HeadX=20;
@@ -28,9 +33,18 @@ public class BaseCanve implements DrawLine{
         lineList= FXCollections.observableArrayList();
     }
 
+    /**
+     * 绘制箭头线
+     * 先删除删除所有链接线，
+     * 之后再根据链接存储结构（GraphMaterix）进行绘制（生成ArrowLine对象），
+     * 将新生成的ArrowLine对象让如存储数组进行存储
+     * @param graphMaterix 需要扫描的链接存储结构对象
+     * @param list 需要存储箭头线的数组
+     * @param pane 需要绘制的布局
+     */
     @Override
     public void DrawLine(GraphMaterix<ListNodeView> graphMaterix, ObservableList<ArrowLine> list, AnchorPane pane) {
-        clearLineList(pane);
+        clearLineList(pane,list);
         for (ArrayList<ListNodeView> edgeList
                 : graphMaterix.getVertex()){
             for (int i=1; i<edgeList.size();i++){
@@ -39,6 +53,18 @@ public class BaseCanve implements DrawLine{
         }
     }
 
+    /**
+     * 添加连接线
+     *
+     * 获取始节点和终节点的x，y坐标，以及宽度和长度，
+     * 生成ArrowList对象
+     * 将该对象添加到布局中
+     * 将对象加入List中进行存储
+     *
+     * @param fromNode
+     * @param toNode
+     * @param pane
+     */
     @Override
     public void addLine(ListNodeView fromNode, ListNodeView toNode, AnchorPane pane) {
         double fromNodeX=fromNode.getLayoutX();
@@ -50,6 +76,10 @@ public class BaseCanve implements DrawLine{
         double fromNodeWidth=fromNode.getWidth();
         double fromNodeHeigh=fromNode.getHeight();
 
+        /**
+         * 创建连接线
+         * 并将线放入Pane中
+         */
         Line line=new Line();
         line.setStartX(0);
         line.setStartY(0);
@@ -59,24 +89,39 @@ public class BaseCanve implements DrawLine{
         line.setLayoutX(fromNodeX+fromNodeWidth);
         line.setLayoutY(fromNodeY+ fromNodeHeigh/2);
 
+        /**
+         * 创建ArrowLine
+         */
         ArrowLine arrowLine=new ArrowLine(line);
 
+        //在创建ArrowLine对象时，计算出三角形相应的参数，对三角形进行获取
         Polygon polygon=arrowLine.getArrow();
+        //将三角形添加到Pane中
         pane.getChildren().add(polygon);
         polygon.setLayoutX(toNodeX);
         polygon.setLayoutY(toNodeY+fromNodeHeigh/2);
 
+        /**
+         * 将arrowLine对象加入到数组中，方便以后操作
+         */
         lineList.add(arrowLine);
     }
 
+    /**
+     * 清除连接线
+     * @param pane 需要进行清除的
+     * @param list 需要清除的数组
+     */
     @Override
-    public void clearLineList(AnchorPane pane) {
+    public void clearLineList(AnchorPane pane, ObservableList<ArrowLine> list) {
+        //遍历数组，将所有的ArrowLine从Pane中删除
         for (ArrowLine arrowLine :
-                lineList) {
+                list) {
             arrowLine.remove(pane);
         }
 
-        lineList.clear();
+        //清除链表
+        list.clear();
     }
 
     public ObservableList<ArrowLine> getLineList() {

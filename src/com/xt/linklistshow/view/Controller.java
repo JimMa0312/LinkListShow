@@ -10,6 +10,9 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * 主界面的视图控制器类
+ */
 public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {

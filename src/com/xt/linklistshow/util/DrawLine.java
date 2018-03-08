@@ -10,5 +10,5 @@ import javafx.scene.shape.Line;
 public interface DrawLine {
     void DrawLine(GraphMaterix<ListNodeView> graphMaterix, ObservableList<ArrowLine> list, AnchorPane pane);
     void addLine(ListNodeView fromNode, ListNodeView toNode, AnchorPane pane);
-    void clearLineList(AnchorPane pane);
+    void clearLineList(AnchorPane pane, ObservableList<ArrowLine> list);
 }

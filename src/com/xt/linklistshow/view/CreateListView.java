@@ -28,29 +28,36 @@ import org.w3c.dom.NodeList;
 import java.net.URL;
 import java.util.*;
 
+/**
+ * 创建链表演示 试图的控制器类
+ */
 public class CreateListView extends BaseCanve implements Initializable{
 
     @FXML
-    private AnchorPane ListCanve;
+    private AnchorPane ListCanve; //展示链表模拟的布局对象
 
     @FXML
-    private ListView<String> CodeList;
+    private ListView<String> CodeList; //用于存储展示的Java操作代码
 
-    ObservableList<String> codes;
+    ObservableList<String> codes; //展示代码的控件，绑定CodeList后一起使用
 
-    Queue<String> inputbuffer;
+    Queue<String> inputbuffer;//用于存储一个字符串，将按照该存储的字符串创建模拟链表
 
-    ObservableList<ListNodeView> nodeArray;
+    ObservableList<ListNodeView> nodeArray;//用来存储节点
 
     private Label s;//临时指针视图
     private Label r;//末尾指针视图
 
-    private IntegerProperty step=new SimpleIntegerProperty(1);
+    private IntegerProperty step=new SimpleIntegerProperty(1); //存储当前运行CodeList中第几行代码
 
-    private ListNodeView tempListNodeView;
+    private ListNodeView tempListNodeView; //临时节点对象
 
     private GraphMaterix<ListNodeView> graphMaterix;    //链接矩阵
 
+    /**
+     * 构造函数
+     * 对一些成员变量进行初始化
+     */
     public CreateListView() {
         super();
         inputbuffer=new LinkedList<>();
@@ -58,15 +65,26 @@ public class CreateListView extends BaseCanve implements Initializable{
         graphMaterix=new GraphMaterix<>(1);
     }
 
+    /**
+     * JavaFx初始化
+     * 将先于构造函数执行
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        codes= ReadFromFile.readFileByLine("resources/CreateListCode.txt");
-        CodeList.setItems(codes);
-        CheckInputBuffer();
+        codes= ReadFromFile.readFileByLine("resources/CreateListCode.txt");//读取文件，将展示代码按行存储到codes链表中
+        CodeList.setItems(codes);//对CodeList控件绑定codes
+        CheckInputBuffer();//检查输入队列
         //TODO
 //        pathTransition();
     }
 
+    /**
+     * 触发（Event）方法
+     * 核心代码
+     *
+     */
     @FXML
     public void handleNext(){
         switch (step.get()) {
@@ -199,25 +217,40 @@ public class CreateListView extends BaseCanve implements Initializable{
         pathTransition.play();
     }
 
+    /**
+     * 检查输入队列的方法
+     *
+     * 如果队列为空，需将输入一个字符串进行存储
+     */
     private void CheckInputBuffer(){
         if (inputbuffer.isEmpty()){
             createInputBuffer();
         }
     }
 
+    /**
+     * 创建输入字符串
+     */
     private void createInputBuffer(){
+        //新建一个可输入的对话框（Dialog）
         TextInputDialog dialog=new TextInputDialog("abcdef");
         dialog.setTitle("创建新链表");
         dialog.setHeaderText("输入一个字符串（长度不能大于6个）");
         dialog.setContentText("输入字符串：");
-        Optional<String> result=dialog.showAndWait();
-        if (result.isPresent()){
+
+        Optional<String> result=dialog.showAndWait(); //创建一个接收器，接收一个字符串，当对话框关闭时，会返回该字符串
+        if (result.isPresent()){//如果字符串有效
             System.out.println(result.get());
-            CreateInputString(result.get());
+            CreateInputString(result.get());//将字符串放入队列中
         }
     }
 
+    /**
+     * 创建输入队列
+     * @param inputStr 需要存储的字符串
+     */
     private void CreateInputString(String inputStr){
+        //将字符串进行遍历，提取单个字符，再将字符存储到队列中
         for (int i=0;i<inputStr.length();i++){
             inputbuffer.add(String.valueOf(inputStr.charAt(i)));
         }

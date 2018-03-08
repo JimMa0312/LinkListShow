@@ -31,6 +31,7 @@ public class ListNodeView extends Pane implements Initializable {
         drawNode();
         node.addDataLisener(data);
         node.addIsConnectionListener(isNull);
+        node.addIsOnFouce(onFuces);
     }
 
     public ListNodeView(ListNode node){
@@ -39,6 +40,7 @@ public class ListNodeView extends Pane implements Initializable {
         drawNode();
         node.addDataLisener(data);
         node.addIsConnectionListener(isNull);
+        node.addIsOnFouce(onFuces);
     }
 
     public ListNode getNode() {
@@ -65,6 +67,9 @@ public class ListNodeView extends Pane implements Initializable {
 
     }
 
+    /**
+     * 绘制最原始的节点图象
+     */
     private void drawNode(){
         if (node!=null){
             if (node.getIsOnFuces()){
