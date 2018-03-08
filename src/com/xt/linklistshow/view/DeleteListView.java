@@ -156,6 +156,11 @@ public class DeleteListView extends BaseCanve implements Initializable{
                 step.set(step.get()+1);
             }
             break;
+            case 5:
+            case 9:
+            case 16:
+                super.ShowEndAlert();
+                break;
         }
     }
 

@@ -183,11 +183,7 @@ public class CreateListView extends BaseCanve implements Initializable{
             break;
             case 14:
                 {
-                    CodeList.getSelectionModel().select(step.get());
-                    Alert alert=new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("完成");
-                    alert.setHeaderText("创建链表演示完成！");
-                    alert.showAndWait();
+                    super.ShowEndAlert();
                 }
                 break;
         }
